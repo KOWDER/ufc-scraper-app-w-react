@@ -1,0 +1,22 @@
+{
+  "name": "ufc-scraper",
+  "version": "1.0.0",
+  "description": "scraping the ufc api",
+  "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix app",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix app",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Kevin Ostafinski",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "concurrently": "^4.0.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "node-fetch": "^2.2.0"
+  }
+}

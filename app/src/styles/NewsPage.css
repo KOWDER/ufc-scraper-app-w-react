@@ -1,0 +1,43 @@
+.news-page {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.news-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.news-article {
+  position: relative;
+  width: 48%;
+  height: auto;
+  margin: 1%;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.article-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.article-content {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+}
+
+.article-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.article-date {
+  font-size: 12px;
+}

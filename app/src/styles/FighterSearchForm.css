@@ -1,0 +1,35 @@
+.search-label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#fighter-input {
+  padding: 5px;
+  font-size: 16px;
+  margin: 1em;
+}
+
+#fighter-input:hover {
+  border: 1px solid rgb(4, 33, 87);
+}
+
+#fighter-input:focus {
+  outline: none;
+  border:1px solid rgb(4, 33, 87);
+  box-shadow: 0 0 10px rgba(4, 33, 87, 0.4);
+}
+
+.search-btn {
+  font-size: 16px;
+  border: none;
+  padding: 4px 10px;
+  border: 1px solid rgb(4, 33, 87);
+  background-color: transparent;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.search-btn:hover {
+  color: #fff;
+  background-color: rgb(4, 33, 87);
+}

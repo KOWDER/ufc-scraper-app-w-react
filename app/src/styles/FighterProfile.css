@@ -1,0 +1,101 @@
+.fighter-page {
+  width: 80%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.fighter-profile {
+  margin-top: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fighter-img {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.fighter-img img {
+  display: block;
+  width: 80%;
+}
+
+.fighter-info {
+  width: 50%;
+}
+
+.fighter-info ul {
+  margin: 0;
+  padding: 0;
+}
+
+.fighter-info li {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.fighter-fight {
+  display: flex;
+  margin: 1em 0;
+  padding: 1em;
+  box-shadow: 1px 1px 5px 1px rgba(243, 92, 92, 0.2);
+}
+
+.fighter-fight > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}
+
+.fight-opponent {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 2;
+}
+
+.fight-event,
+.fight-where,
+.fight-when,
+.fight-title {
+  color: rgb(65, 65, 65);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.fight-result {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.fight-opponentImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.fight-opponentImg > img {
+  max-width: 80%;
+}
+
+.fight-titleImg {
+  width: 20%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.fight-titleImg > img {
+  width: 50%;
+}
+
+.fighter-info ul,
+.fighter-fight ul {
+  list-style: none;
+}
