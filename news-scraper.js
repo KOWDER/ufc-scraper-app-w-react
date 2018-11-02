@@ -24,7 +24,7 @@ function searchNewsById(newsId) {
       const $thumbnail = $('.news-detail .news-image').attr('src');
       const $title = $('.detail-wrapper-inner h1 span').text();
       const $date = $('.detail-wrapper-inner h5').text();
-      const $content = $('.detail-wrapper-inner div').text();
+      const $content = $('.detail-wrapper-inner').html();
 
       const article = {
         thumbnail: $thumbnail,

@@ -1,0 +1,20 @@
+.home-page {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.home-page ul {
+  list-style-type: decimal;
+}
+
+.home-page li {
+  font-size: 18px;
+  margin: 1em 0 0 0;
+}
+
+.home-page code {
+  background-color: antiquewhite;
+  padding: 0 10px;
+  font-weight: 600;
+  font-style: italic;
+}

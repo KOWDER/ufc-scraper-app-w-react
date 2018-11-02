@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
-import HomePage from './HomePage';
+import AboutPage from './AboutPage';
 import FighterPage from './FighterPage';
 import NewsPage from './NewsPage';
 import DocumentPage from './DocumentPage';
@@ -17,10 +17,8 @@ class App extends Component {
         fighters: [],
         profile: []
       },
-      news: {
-        articles: [],
-        doc: []
-      }
+      news: [],
+      doc: []
     }
   }
 
@@ -40,12 +38,9 @@ class App extends Component {
     fetch("/news")
       .then(res => res.json())
       .then(articles => {
-        this.setState(prevstate => ({
-          news: {
-            ...prevstate.news,
-            articles: articles
-          }
-        }));
+        this.setState({
+          news: articles
+        });
       })
       .catch(error => console.error('Error:', error));
   }
@@ -92,19 +87,16 @@ class App extends Component {
   }
 
   handleNewsClick = (e) => {
-    let id = e.target.parentNode.id;
+    let id = e.target.parentNode.dataset.id;
     
     return this.setState({ loading: true }, () => {
       fetch(`/news/${id}`)
         .then(res => res.json())
         .then(data => {
-          this.setState(prevstate => ({
+          this.setState({
             loading: false,
-            news: {
-              ...prevstate.news,
-              doc: data
-            }
-          }));
+            doc: data
+          });
         })
         .catch(error => console.error('Error:', error));
       })
@@ -117,23 +109,23 @@ class App extends Component {
   }
 
   render() {
-    const { loading, fighting, news } = this.state;
+    const { loading, fighting, news, doc } = this.state;
     return (
       <div>
         <header>
           <nav>
-          <Link className="header-homelink" to="/">UFCify</Link>
             <ul>
+              <Link className="header-homelink" to="/">UFCify</Link>
               <Link className="header-link" to="/fighter">Fighter</Link>
-              <Link className="header-link" to="/news">News</Link>
+              <Link className="header-link" to="/about">About</Link>
             </ul> 
           </nav>
         </header>
         <Switch>
-          <Route exact path="/" render={() => <HomePage />} />
+          <Route path="/about" render={() => <AboutPage />} />
           <Route path="/fighter" render={() => <FighterPage loading={loading} data={fighting} handleKeyPress={this.handleEnterPress} handleChange={this.handleInputChange} handleSearch={this.handleFighterSearch}/>} />
-          <Route path="/news" render={() => <NewsPage data={news} handleClick={this.handleNewsClick}/>} />
-          <Route path="/article" render={() => <DocumentPage loading={loading} data={news.doc}/>} />
+          <Route exact path="/" render={() => <NewsPage data={news} handleClick={this.handleNewsClick}/>} />
+          <Route path="/article" render={() => <DocumentPage loading={loading} data={doc}/>} />
         </Switch>
       </div>
     )
