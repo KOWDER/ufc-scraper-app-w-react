@@ -1,14 +1,18 @@
+// import dependencies
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 
+// UFC API generic path
 const url = 'http://ufc-data-api.ufc.com/api/v3/iphone/fighters/';
 
-//init cache
+//initialize cache Object
 const searchCache = {};
 
 function searchFighterById(fighterId) {
 
-  //if object found in cache, serve it from the cache
+  // fighters are stored in the searchCache Object by their IDS
+  // if the ID passed to the function corresponds to one of them
+  // the function will serve the fighter stored in the cache.
   if(searchCache[fighterId]) {
     console.log('serving from cache', fighterId);
     return Promise.resolve(searchCache[fighterId]);
@@ -18,11 +22,13 @@ function searchFighterById(fighterId) {
     .then(response => response.text())
     .then(body => {
 
-      //init object
+      // initialize global fighter profile Array
       const fighterProfile = [];
+
+      // set cheerio to $
       const $ = cheerio.load(body);
       
-      //scrap the page
+      // scrap the page with Cheerio
       const $name = $('.fighter-overview > h1').text();
       const $record = $('.fighter-overview .fighter-record .white').text();
       const $nickname = $('.fighter-overview .fighter-record .red').text();
@@ -34,7 +40,7 @@ function searchFighterById(fighterId) {
       const $weight = $('.fight-info-data tr:nth-of-type(5) td:nth-of-type(2)').text();
       const $weightClass = $('.fight-info-data tr:nth-of-type(6) td:nth-of-type(2)').text();
 
-      //pass scrapped info into info object
+      // pass scrapped information about a fighter into an info Object
       const info = {
         name: $name,
         record: $record,
@@ -49,10 +55,14 @@ function searchFighterById(fighterId) {
         id: fighterId
       }
 
-      //push info object to the main one
+      // push info Object to the fighter Array (fighterProfile.info)
       fighterProfile.push({ info: info });
       
+      // initialize a fights Array to store all the fights the fighter had
       const fights = [];
+
+      // Loop through element that has all the fights. 
+      // Each Li represents a fight. 
       $('.fighter-list li').each(function(i, el) {
         const $el = $(el);
         const $opponentImg = $el.find('a .fighter-thumbnail').attr('src');
@@ -64,6 +74,7 @@ function searchFighterById(fighterId) {
         const $where = $el.find('p').html().split("<br>")[2].trim();
         const $when = $el.find('p').html().split("<br>")[1].trim();
         
+        // every single fight stored into a single fight Object
         const fight = {
           opponentImg: $opponentImg,
           opponent: $opponent,
@@ -75,15 +86,19 @@ function searchFighterById(fighterId) {
           when: $when
         };
 
+        // this fight Object is pushed into the fights Array
         fights.push(fight);
 
       });
-  
+      
+      // fights Array is pushed to fighterProfile Array (fighterProfile.fights)
       fighterProfile.push({ fights });
 
-      //pass the object to the cache
+      // pass the Array to the cache in case the user searches for it again
+      // to avoid another scraping cycle
       searchCache[fighterId] = fighterProfile
 
+      // returns the fighterProfile Array
       return fighterProfile;
     })
     .catch(error => console.error('Error:', error));
