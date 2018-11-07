@@ -6,9 +6,11 @@ back-end scrapes content from the [official UFC api](http://ufc-data-api.ufc.com
 
 front-end fetches from the custom API on `localhost:5000`
 
+endpoints: `localhost:5000/fighters/:fighterId`, `localhost:5000/news/:newsId`
+
 scraped with [CheerioJS](https://github.com/cheeriojs/cheerio)
 
-back-end uses caching to avoid repetitive requests
+back-end uses some caching to avoid repetitive requests
 
 Run `npm run client-install` to install client dependencies.
 
