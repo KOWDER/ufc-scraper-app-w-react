@@ -25,7 +25,7 @@ class App extends Component {
   // initial fetch from localhost:5000 that stores 
   // all the fighters and news on it endpoints from the UFC api
   componentDidMount() {
-    fetch("/fighters")
+    fetch("/api/fighters")
       .then(res => res.json())
       .then(data => {
         this.setState(prevState => ({
@@ -37,7 +37,7 @@ class App extends Component {
       })
       .catch(error => console.error('Error:', error));
     
-    fetch("/news")
+    fetch("/api/news")
       .then(res => res.json())
       .then(articles => {
         this.setState({
@@ -76,7 +76,7 @@ class App extends Component {
       // set loading to true to trigger the Spinner component until data is fetched
       return this.setState({ loading: true }, () => {
         // in the callback fetch the data by passing the fighter's id as an endpoint to the url
-        fetch(`/fighters/${fighter[0].id}`)
+        fetch(`/api/fighters/${fighter[0].id}`)
           .then(res => res.json())
           // when the data is fetched, set loading to false to end the Spinner component
           // update the state of fighting.profile with the fecthed data
@@ -108,7 +108,7 @@ class App extends Component {
     // set loading to true to trigger Spinner component
     return this.setState({ loading: true }, () => {
       // pass the id of the article to the url of the fetch function
-      fetch(`/news/${id}`)
+      fetch(`/api/news/${id}`)
         .then(res => res.json())
         .then(data => {
           // set loading to false to hide Spinner component since data was fetched
@@ -137,6 +137,7 @@ class App extends Component {
           <nav>
             <ul>
               <Link className="header-homelink" to="/">UFCify</Link>
+              <Link className="header-link" to="/">News</Link>
               <Link className="header-link" to="/fighter">Fighter</Link>
               <Link className="header-link" to="/about">About</Link>
             </ul> 
