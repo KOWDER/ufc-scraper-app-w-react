@@ -2,6 +2,8 @@
 const express = require('express');
 const cors = require('cors');
 
+const path = require('path');
+
 // import API objects
 const fightersList = require('./fighters');
 const fighterScraper = require('./fighter-scraper');
