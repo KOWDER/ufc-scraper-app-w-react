@@ -15,15 +15,16 @@ const newsScraper = require('./news-scraper');
 const app = express();
 app.use(cors());
 
-// set default route
+/* set default route
 app.get('/', (req, res) => {
   res.json({
     message: 'Scraping is fun!'
   });
 });
+*/
 
 // set route for the fighters object
-app.get('/fighters', (req, res) => {
+app.get('/api/fighters', (req, res) => {
   fightersList.getFighters()
     .then(fighters => {
       res.json(fighters);
@@ -31,7 +32,7 @@ app.get('/fighters', (req, res) => {
 });
 
 // set route for the news object
-app.get('/news', (req, res) => {
+app.get('/api/news', (req, res) => {
   newsList.getNews()
     .then(news => {
       res.json(news);
@@ -39,7 +40,7 @@ app.get('/news', (req, res) => {
 });
 
 // set route for individual fighter by their ID
-app.get('/fighters/:fighterById', (req, res) => {
+app.get('/api/fighters/:fighterById', (req, res) => {
   fighterScraper.searchFighterById(req.params.fighterById)
     .then(fighter => {
       res.json(fighter);
@@ -47,7 +48,7 @@ app.get('/fighters/:fighterById', (req, res) => {
 });
 
 // set route for individual news by their ID
-app.get('/news/:newsById', (req, res) => {
+app.get('/api/news/:newsById', (req, res) => {
   newsScraper.searchNewsById(req.params.newsById)
     .then(news => {
       res.json(news);
