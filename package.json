@@ -8,7 +8,8 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm start --prefix app",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd app && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "Kevin Ostafinski",
   "license": "ISC",
