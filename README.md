@@ -8,7 +8,7 @@ back-end scrapes content from the [official UFC api](http://ufc-data-api.ufc.com
 
 front-end fetches from the custom API on `localhost:5000`
 
-endpoints: `localhost:5000/fighters/:fighterId`, `localhost:5000/news/:newsId`
+endpoints: `localhost:5000/api/fighters/:fighterId`, `localhost:5000/api/news/:newsId`
 
 scraped with [CheerioJS](https://github.com/cheeriojs/cheerio)
 
