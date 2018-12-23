@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import AboutPage from './AboutPage';
@@ -169,4 +169,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
