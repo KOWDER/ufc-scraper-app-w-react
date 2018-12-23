@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import AboutPage from './AboutPage';
 import FighterPage from './FighterPage';
@@ -141,6 +142,8 @@ class App extends Component {
               <Link className="header-link" to="/fighter">Fighter</Link>
               <Link className="header-link" to="/about">About</Link>
             </ul> 
+            <div className="header-link">ADD:{this.props.add}</div>
+            <button onClick={this.props.onAdd}>add</button>
           </nav>
         </header>
         <Switch>
@@ -154,4 +157,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    add: state.add
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAdd: () => dispatch({type: 'ADD'})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
