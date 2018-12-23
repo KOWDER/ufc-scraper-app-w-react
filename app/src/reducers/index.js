@@ -11,17 +11,15 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-  const newState = {...state};
 
   switch (action.type) {
-
     case 'ADD':
       return {
-        ...newState,
-        add: ++newState.add
+        ...state,
+        add: ++state.add
       }
 
     default:
-      return newState
+      return state
   }
 }
