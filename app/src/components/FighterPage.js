@@ -4,7 +4,7 @@ import FighterSearchForm from './FighterSearchForm';
 import Spinner from './Spinner';
 
 
-export default ({loading, fighters, profile, inputBox, handleChange, handleSearch, handleKeyPress}) => {
+export default ({loading, fighters, inputBox, profile, handleChange, handleSearch, handleKeyPress}) => {
   return(
     <div className="fighter-page">
       <FighterSearchForm 
