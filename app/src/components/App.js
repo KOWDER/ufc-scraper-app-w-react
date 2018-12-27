@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as action from '../actions';
 
 import AboutPage from './AboutPage';
 import FighterPage from './FighterPage';
@@ -165,7 +166,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAdd: () => dispatch({type: 'ADD'})
+    onAdd: () => dispatch(action.addUp(1))
   }
 }
 
