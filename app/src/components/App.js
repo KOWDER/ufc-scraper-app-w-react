@@ -12,11 +12,9 @@ class App extends Component {
 
     this.state = {
       loading: false,
-      fighting: {
-        inputBox: '',
-        fighters: [],
-        profile: []
-      },
+      inputBox: '',
+      fighters: [],
+      profile: [],
       news: [],
       doc: []
     }
@@ -28,21 +26,14 @@ class App extends Component {
     fetch("/api/fighters")
       .then(res => res.json())
       .then(data => {
-        this.setState(prevState => ({
-          fighting: {
-            ...prevState.fighting,
-            fighters: data
-          }
-        }));
+        this.setState({ fighters: data });
       })
       .catch(error => console.error('Error:', error));
     
     fetch("/api/news")
       .then(res => res.json())
       .then(articles => {
-        this.setState({
-          news: articles
-        });
+          this.setState({ news: articles});
       })
       .catch(error => console.error('Error:', error));
   }
@@ -51,24 +42,19 @@ class App extends Component {
   handleInputChange = (e) => {
     const val = e.target.value;
 
-    this.setState(prevstate => ({
-      fighting: {
-        ...prevstate.fighting,
-        inputBox: val
-      }
-    }));
+    this.setState({ inputBox: val });
   }
 
   // handle when the user search for a specific fighter
   handleFighterSearch = (e) => {
     e.preventDefault();
 
-    const { fighting } = this.state;
+    const { inputBox, fighters } = this.state;
 
     // isolate the fighter by filtering the entire fighters Array in the state
     // find the fighter that corresponds to the inputBox value passed by the user
-    let fighter = fighting.fighters.filter(fighter => {
-      return `${fighter.firstName} ${fighter.lastName}`.toLowerCase() === fighting.inputBox.toLowerCase();
+    let fighter = fighters.filter(el => {
+      return `${el.firstName} ${el.lastName}`.toLowerCase() === inputBox.toLowerCase();
     });
 
     // if the fighter exists
@@ -82,14 +68,11 @@ class App extends Component {
           // update the state of fighting.profile with the fecthed data
           // clean the fighting.inputBox state
           .then(data => {
-            this.setState(prevstate => ({
+            this.setState({
               loading: false,
-              fighting: {
-                ...prevstate.fighting,
-                profile: data,
-                inputBox: ''
-              }
-            }));
+              profile: data,
+              inputBox: ''
+            });
           })
           .catch(error => console.error('Error:', error));
       }) 
@@ -130,7 +113,7 @@ class App extends Component {
   }
 
   render() {
-    const { loading, fighting, news, doc } = this.state;
+    const { loading, fighters, profile, inputBox, news, doc } = this.state;
     return (
       <div>
         <header>
@@ -145,8 +128,24 @@ class App extends Component {
         </header>
         <Switch>
           <Route path="/about" render={() => <AboutPage />} />
-          <Route path="/fighter" render={() => <FighterPage loading={loading} data={fighting} handleKeyPress={this.handleEnterPress} handleChange={this.handleInputChange} handleSearch={this.handleFighterSearch}/>} />
+
+          <Route 
+            path="/fighter" 
+            render={
+              () => <FighterPage
+                fighters= {fighters}
+                profile={profile}
+                inputBox={inputBox} 
+                loading={loading} 
+                handleKeyPress={this.handleEnterPress} 
+                handleChange={this.handleInputChange} 
+                handleSearch={this.handleFighterSearch}
+              />
+            }
+          />
+
           <Route exact path="/" render={() => <NewsPage data={news} handleClick={this.handleNewsClick}/>} />
+
           <Route path="/article" render={() => <DocumentPage loading={loading} data={doc}/>} />
         </Switch>
       </div>
