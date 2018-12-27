@@ -1,3 +1,3 @@
 export const addUp = (val) => {
-  return { type: 'ADD', value: val }
+  return { type: 'ADD' }
 }
