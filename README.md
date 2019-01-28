@@ -1,6 +1,6 @@
 website: [https://ufcify.herokuapp.com/](https://ufcify.herokuapp.com/)
 
-built with React and NodeJS
+built with NodeJS, React & Redux
 
 front-end runs on `localhost:3000`
 
