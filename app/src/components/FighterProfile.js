@@ -6,10 +6,10 @@ export default ({profile}) => {
     <div>
       <div className="fighter-profile">
         <div className="fighter-img">
-          <img src={profile[0].info.profileImg} alt="fighter face" />
+          {profile[0].info.profileImg && <img src={profile[0].info.profileImg} alt="fighter face" />}
         </div>
         <div className="fighter-info">
-          <h3>Informations :</h3>
+          <h3>{!profile[0].info.name ? `The API might have problems http://ufc-data-api.ufc.com/api/v3/iphone/ ` : 'Informations'}</h3>
           <ul>
             <li>{profile[0].info.name ? `name: ${profile[0].info.name}` : ''}</li>
             <li>{profile[0].info.nickname ? `nickname: '${profile[0].info.nickname}'` : ''}</li>
