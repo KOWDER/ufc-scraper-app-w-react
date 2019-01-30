@@ -4,7 +4,7 @@ import '../styles/FighterSearchForm.css';
 export default ({onChange, onKeyPress, onClick, inputValue, fightersList}) => {
   return (
     <div className="fighter-search-form">
-      <label htmlFor="fighter-input" className="search-label">Find an UFC fighter: </label>
+      <label htmlFor="fighter-input" className="search-label">Find an UFC fighter : </label>
       <input 
         type="text" 
         list="fighters-list"

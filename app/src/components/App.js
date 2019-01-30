@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch, withRouter } from 'react-router-dom';
+import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as action from '../actions';
 
@@ -87,10 +87,10 @@ class App extends Component {
         <header>
           <nav>
             <ul>
-              <Link className="header-homelink" to="/">UFCify</Link>
-              <Link className="header-link" to="/">News</Link>
-              <Link className="header-link" to="/fighter">Fighter</Link>
-              <Link className="header-link" to="/about">About</Link>
+              <NavLink className="header-homelink" to="/">UFCify</NavLink>
+              <NavLink exact className="header-link" to="/" activeStyle={{fontWeight: "bold",color: "red"}}>News</NavLink>
+              <NavLink className="header-link" to="/fighter" activeStyle={{fontWeight: "bold",color: "red"}}>Fighter</NavLink>
+              <NavLink className="header-link" to="/about" activeStyle={{fontWeight: "bold",color: "red"}}>About</NavLink>
             </ul> 
           </nav>
         </header>

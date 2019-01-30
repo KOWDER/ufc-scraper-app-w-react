@@ -1,35 +1,37 @@
+
+
 .search-label {
-  font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 #fighter-input {
-  padding: 5px;
-  font-size: 16px;
+  border: 1px solid rgba(105, 105, 105, 0.4);
+  padding: 10px;
   margin: 1em;
-}
-
-#fighter-input:hover {
-  border: 1px solid rgb(4, 33, 87);
+  border-radius: 5px;
 }
 
 #fighter-input:focus {
   outline: none;
-  border:1px solid rgb(4, 33, 87);
-  box-shadow: 0 0 10px rgba(4, 33, 87, 0.4);
+  box-shadow: 0 0 10px rgba(105, 105, 105, 0.4);
 }
 
 .search-btn {
-  font-size: 16px;
-  border: none;
-  padding: 4px 10px;
-  border: 1px solid rgb(4, 33, 87);
-  background-color: transparent;
+  border-radius: 5px;
   cursor: pointer;
-  letter-spacing: 1px;
+  border: 0;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  transition: 0.4s;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: 0.4s;
+  box-shadow: 0px 1px 2px 1px rgba(105, 105, 105, 0.4);
 }
 
 .search-btn:hover {
-  color: #fff;
-  background-color: rgb(4, 33, 87);
+  color: #f7f7f7;
+  background-color: #1e88e5;
 }

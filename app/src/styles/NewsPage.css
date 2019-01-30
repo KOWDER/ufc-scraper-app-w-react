@@ -1,20 +1,35 @@
 .news-page {
   width: 80%;
   margin: 0 auto;
+  padding-top: 80px;
 }
 
 .news-grid {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  justify-content: space-between;
 }
 
 .news-article {
   position: relative;
-  width: 48%;
+  margin-bottom: 20px;
+  width: 32%;
   height: auto;
-  margin: 1%;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+  background-color: rgb(105, 105, 105);
+}
+
+@media screen and (max-width: 1150px) {
+  .news-article {
+    width: 49%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .news-article {
+    width: 100%;
+  }
 }
 
 .article-img {
@@ -34,7 +49,11 @@
 }
 
 .article-title {
-  font-size: 20px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
   font-weight: 600;
 }
 

@@ -24,7 +24,6 @@ const NewsList = ({handleClick, news}) => {
             <img className="article-img" src={article.thumbnail ? article.thumbnail : "https://cdn.lowkickmma.com/wp-content/uploads/2016/05/WerdumMiocic.jpg"} alt=""/>
             <div className="article-content" data-id={article.id}>
               <span className="article-title">{article.title}</span>
-              <br/>
               <span className="article-date">{article.date ? new Date(`${article.date}`).toLocaleDateString() : ''}</span>
             </div>   
           </Link>
