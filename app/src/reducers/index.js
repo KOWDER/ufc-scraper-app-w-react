@@ -21,7 +21,6 @@ const initialState = {
   profile: [],
   news: [],
   doc: [],
-  add: 0,
   error: null
 }
 

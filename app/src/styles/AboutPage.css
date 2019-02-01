@@ -14,8 +14,11 @@
 }
 
 .home-page code {
-  background-color: antiquewhite;
-  padding: 0 10px;
+  background-color: rgba(33,150,243, 0.4);
+  padding: 5px 10px;
   font-weight: 600;
-  font-style: italic;
+}
+
+.home-page a {
+  color: red;
 }
