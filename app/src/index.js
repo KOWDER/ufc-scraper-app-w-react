@@ -10,11 +10,12 @@ import rootReducer from './reducers';
 import './index.css';
 import App from './components/App';
 
+
 const store = createStore(
   rootReducer, 
   compose(
     applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    process.env.NODE_ENV !== 'production' && window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 );
 
