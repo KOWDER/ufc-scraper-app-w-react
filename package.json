@@ -19,5 +19,8 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "node-fetch": "^2.2.0"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.8"
   }
 }
