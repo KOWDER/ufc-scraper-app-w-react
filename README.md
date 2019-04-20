@@ -1,4 +1,4 @@
-:exclamation: **As of January 2019, the UFC API is down** :exclamation:
+:exclamation: **As of January 2019, the [UFC API](http://ufc-data-api.ufc.com/api/v3/iphone) is down** :exclamation:
 
 ## 1. About
 UFCify is an application that displays informations on the UFC world. [Live Demo Here](https://ufcify.herokuapp.com/)
