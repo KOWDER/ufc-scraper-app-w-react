@@ -1,21 +1,21 @@
-website: [https://ufcify.herokuapp.com/](https://ufcify.herokuapp.com/)
+:exclamation: **As of January 2019, the UFC API is down** :exclamation:
 
-built with NodeJS, React & Redux
+## 1. About
+UFCify is an application that displays informations on the UFC world. [Live Demo Here](https://ufcify.herokuapp.com/)
 
-front-end runs on `localhost:3000`
+- The back-end is built on Node, and scrapes data from the official UFC API with [Cheerio](https://github.com/cheeriojs/cheerio]).
+- The React front-end fetches that data locally from back-end endpoints.
+- The state is managed with [Redux](https://github.com/reduxjs/redux).
 
-back-end scrapes content from the [official UFC api](http://ufc-data-api.ufc.com) and stores the data in its own custom one.
 
-front-end fetches from the custom API on `localhost:5000`
+## 2. Installation
+-  `npm install`to install back-end dependencies.
+-  `npm run client-install` to install front-end dependencies.
 
-endpoints: `localhost:5000/api/fighters/:fighterId`, `localhost:5000/api/news/:newsId`
+## 3. Usage
+- `npm run dev` to run the app (back + front concurrently) locally.
+- the app allows you to :
+	- read the latest news the UFC posted
+	- search for fighter informations
 
-scraped with [CheerioJS](https://github.com/cheeriojs/cheerio)
-
-back-end uses some caching to avoid repetitive requests
-
-Run `npm run client-install` to install client dependencies.
-
-Run `npm run dev` to run both front & back-end together.
-
-Work in progress :)
+*The app is a living project, it might be subject to changes for learning purposes*:innocent:
